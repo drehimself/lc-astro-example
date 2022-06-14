@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+import MyButton from '../components/MyButton.astro';
+const name = 'Andre';
+const someHtml = '<div>Hi</div><div>There</div>';
+const isCool = true;
+const fruits = ['apple', 'orange', 'banana'];
+---
+
+<Layout title="Home">
+  <h1>Main Page</h1>
+	<MyButton>
+		<div>This is</div>
+		<div>A Slot</div>
+	</MyButton>
+  <div>{name}</div>
+  <div set:html="someHtml"></div>
+	<div>
+		{ isCool &&
+		<span>{name}</span>
+		}
+	</div>
+	<div>
+		<ul>
+			{ fruits.map(fruit => (
+			<li class="list-disc">{fruit}</li>
+			))}
+		</ul>
+	</div>
+</Layout>

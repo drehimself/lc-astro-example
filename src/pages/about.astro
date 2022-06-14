@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+import VueCounter from '../components/VueCounter.vue';
+import ReactCounter from '../components/ReactCounter.jsx';
+import SvelteCounter from '../components/SvelteCounter.svelte';
+---
+
+<Layout title="About">
+  <h1>About Page</h1>
+  <button
+    class="bg-blue-600 text-white px-4 py-2 inline-block rounded-md"
+    id="clickMe">Click Me!</button
+  >
+  <div class="mt-8">
+    <VueCounter title="My Vue Counter" client:load />
+  </div>
+  <div class="mt-8">
+    <ReactCounter title="My React Counter" client:load />
+  </div>
+  <div class="mt-8">
+    <SvelteCounter title="My Svelte Counter" client:load />
+  </div>
+</Layout>
+
+<script>
+  document
+    .querySelector('#clickMe')
+    .addEventListener('click', () => alert('clicked!'));
+</script>
